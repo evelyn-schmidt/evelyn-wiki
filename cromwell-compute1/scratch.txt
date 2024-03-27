@@ -1,0 +1,7 @@
+export RUN=rnaseq_test1
+if ! [ -e /scratch1/fs1/mgriffit/evelyn/$RUN ]; then mkdir -p /scratch1/fs1/mgriffit/evelyn/$RUN; fi
+cp -p ./testWDL.sh  /scratch1/fs1/mgriffit/evelyn/$RUN/
+cd /scratch1/fs1/mgriffit/evelyn/$RUN
+source testWDL.sh
+
+

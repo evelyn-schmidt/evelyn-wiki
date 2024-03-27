@@ -1,0 +1,45 @@
+---
+#Pull key information from metadata YAML files
+#grep -P "PU|index_sequence|full_name" */*.yaml
+
+# ------------- Reference genome for DNA-seq alignments ---------------
+rnaseqStarFusion.reference: "/storage1/fs1/mgriffit/Active/griffithlab/pipeline_test/malachi/refs_backup/May-2023/griffith-lab-workflow-inputs/human_GRCh38_ens105/aligner_indices/bwamem2_2.2.1/all_sequences.fa"
+rnaseqStarFusion.reference_fai: "/storage1/fs1/mgriffit/Active/griffithlab/pipeline_test/malachi/refs_backup/May-2023/griffith-lab-workflow-inputs/human_GRCh38_ens105/aligner_indices/bwamem2_2.2.1/all_sequences.fa.fai"
+rnaseqStarFusion.reference_dict: "/storage1/fs1/mgriffit/Active/griffithlab/pipeline_test/malachi/refs_backup/May-2023/griffith-lab-workflow-inputs/human_GRCh38_ens105/aligner_indices/bwamem2_2.2.1/all_sequences.dict"
+
+
+# ------------- Tumor RNA sample input data files and meta-data -----------------
+rnaseqStarFusion.unaligned:
+  - sequence:
+      fastq1: "/storage1/fs1/tfehnige/Active/mdaccwashu/DLBCL_scAtlas/raw_data/bulk_rnaseq/FASTQ/DLBCL_M1_RNA_R1.fastq.gz"
+      fastq2: "/storage1/fs1/tfehnige/Active/mdaccwashu/DLBCL_scAtlas/raw_data/bulk_rnaseq/FASTQ/DLBCL_M1_RNA_R2.fastq.gz"
+    readgroup: "ID:TUMOR_RNA\tPU:H5HVLDSX7.3\tSM:DLBCL-M1-TumorRNA\tLB:DLBCL-M1-TumorRNA-lib\tPL:Illumina\tCN:WASHU"
+rnaseqStarFusion.sample_name: "DLBCL-M1-TumorRNA"
+rnaseqStarFusion.strand: unstranded
+
+
+# ------------- Reference files and settings for STAR-fusion calling
+rnaseqStarFusion.cdna_fasta: "/storage1/fs1/mgriffit/Active/griffithlab/pipeline_test/malachi/refs_backup/May-2023/griffith-lab-workflow-inputs/human_GRCh38_ens105/rna_seq_annotation/Homo_sapiens.GRCh38.cdna.all.fa.gz"
+rnaseqStarFusion.star_fusion_genome_dir_zip: "/storage1/fs1/mgriffit/Active/griffithlab/pipeline_test/malachi/refs_backup/May-2023/griffith-lab-workflow-inputs/human_GRCh38_ens105/aligner_indices/star-fusion_1.10.1_index.zip"
+rnaseqStarFusion.reference_annotation: "/storage1/fs1/mgriffit/Active/griffithlab/pipeline_test/malachi/refs_backup/May-2023/griffith-lab-workflow-inputs/human_GRCh38_ens105/rna_seq_annotation/Homo_sapiens.GRCh38.105.gtf"
+
+# ------------ RNA trimming settings ---------------- 
+rnaseqStarFusion.trimming_adapter_min_overlap: 7
+rnaseqStarFusion.trimming_adapter_trim_end: RIGHT
+rnaseqStarFusion.trimming_adapters: "/storage1/fs1/mgriffit/Active/griffithlab/pipeline_test/malachi/refs_backup/May-2023/griffith-lab-workflow-inputs/human_GRCh38_ens105/misc/illumina_multiplex.fa"
+rnaseqStarFusion.trimming_max_uncalled: 300
+rnaseqStarFusion.trimming_min_readlength: 25
+
+# ------------- RNA transcript annotations ------------
+rnaseqStarFusion.ribosomal_intervals: "/storage1/fs1/mgriffit/Active/griffithlab/pipeline_test/malachi/refs_backup/May-2023/griffith-lab-workflow-inputs/human_GRCh38_ens105/rna_seq_annotation/Homo_sapiens.GRCh38.105.ribo_intervals"
+rnaseqStarFusion.gene_transcript_lookup_table: "/storage1/fs1/mgriffit/Active/griffithlab/pipeline_test/malachi/refs_backup/May-2023/griffith-lab-workflow-inputs/human_GRCh38_ens105/rna_seq_annotation/ensembl105.transcriptToGene.tsv"
+rnaseqStarFusion.kallisto_index: "/storage1/fs1/mgriffit/Active/griffithlab/pipeline_test/malachi/refs_backup/May-2023/griffith-lab-workflow-inputs/human_GRCh38_ens105/rna_seq_annotation/Homo_sapiens.GRCh38.cdna.all.fa.kallisto.idx"
+rnaseqStarFusion.refFlat: "/storage1/fs1/mgriffit/Active/griffithlab/pipeline_test/malachi/refs_backup/May-2023/griffith-lab-workflow-inputs/human_GRCh38_ens105/rna_seq_annotation/Homo_sapiens.GRCh38.105.refFlat.txt"
+
+
+rnaseqStarFusion.examine_coding_effect: true
+rnaseqStarFusion.fusioninspector_mode: "validate"
+rnaseqStarFusion.agfusion_database: "/storage1/fs1/mgriffit/Active/griffithlab/pipeline_test/malachi/refs_backup/May-2023/griffith-lab-workflow-inputs/human_GRCh38_ens105/agfusion_1.3_database/agfusion.homo_sapiens.105.db"
+rnaseqStarFusion.agfusion_annotate_noncanonical: true
+rnaseqStarFusion.min_ffpm_level: 0.025
+
